@@ -1,0 +1,71 @@
+{% extends "loyout.html" %}
+{% load static %}
+{% block title %}Mapa: {{id}} {% endblock %}
+
+{% block body %}
+<div>
+    <h1>Mapa de {{id}}</h1>
+</div>
+<div id="mapa">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgZZK8umUqJn8d5CoIZqWPJ_qtMfqD9q0&callback=initMap"async defer></script>
+    <script>
+        let lugaresInfo = "{{direcciones}}";//[{lat: 10.9899356, lng:-74.8114818}, {lat: 10.9227327, lng:-74.7922199},{lat: 10.9227327, lng:-74.7922199},{lat:10.9925135, lng:-74.8061723},{lat: 10.9713823, lng:-74.8463089}];
+        lista=[];
+        i=1;
+        t= true;
+        s='';
+        s1='';
+        while(i<lugaresInfo.length-1){
+            h=lugaresInfo[i];
+            if (t && h!=','){
+                s+=h;
+           }else{
+               if(lugaresInfo[i]==','){
+                   t=false;
+                   lista.push(Number(s));
+               }else{
+                   s1+=h;
+               }
+           }
+           i+=1;
+        }
+        lista.push(Number(s1));
+        lugaresInfo=lista;
+        //alert(lugaresInfo);
+        var mapa;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(usuarioubicacion => {
+                let ubicacion = {
+                    lat: usuarioUbicacion.coords.latitude,
+                    lng: usuarioUbicacion.coords.longitude
+                }
+                initMap(ubicacion)
+            })
+        }else{
+            initMap() 
+        }
+            function initMap(obj){
+                mapa = new google.maps.Map(document.getElementById('mapa'), {
+                    center: {lat: 10.9813604, lng:-74.8420536},
+                    zoom: 12
+                })
+                let marcadorUsuario = new google.maps.Marker({
+                    position: {lat: lugaresInfo[0], lng: lugaresInfo[1]},
+                    title: 'Tu ubicacion'
+                })
+                marcadorUsuario.setMap(mapa)
+                let marcadores= new google.maps.Marker({
+                    position: {lat: lugaresInfo[0], lng: lugaresInfo[1]},
+                    //title: 'Tu ubicacion',
+                    map: mapa
+                //let marcadores = lugaresInfo.map(lugar => {
+                 //   return new google.maps.Marker({
+                 //       position: lugar,
+                        //title: 'Tu ubicacion',
+                 //       map: mapa
+                   // })
+                })
+            } 
+    </script>
+</div>
+ {% endblock %}

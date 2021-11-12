@@ -1,0 +1,12 @@
+{% extends "loyout.html" %}
+{% block title %}Contacto{% endblock %}
+
+{% block body %}
+   <div>
+       <ul>
+        {%for i in lista%}
+            <a href="{% url 'mapa' id=i %}"><li>{{i}}</li></a> <!-- aqui iria el nombre de la especializacion en vesz del metedo que llamo-->
+        {% endfor%}
+       </ul>
+   </div>
+{% endblock %}

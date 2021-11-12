@@ -1,0 +1,65 @@
+{% extends "loyout.html" %}
+{% load static %}
+{% block style %} <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"> {% endblock %}
+{% block title %}Contacto{% endblock %}
+
+{% block body %}
+<div class="cosa dbody">
+    <div class="container">
+        
+        <a href="https://www.epssura.com/" target="_blank">
+        <div class="item">
+                <img src="{% static 'img/eps/Sura.png' %}" alt="Eps Sura" class="item-img">
+                <div class="item-text sd">
+                    <h3>Sura</h3>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.epssanitas.com/usuarios/web/nuevo-portal-eps#gsc.tab=0" target="_blank">
+            <div class="item">
+                <img src="{% static 'img/eps/Sanitas.png' %}" alt="" class="item-img">
+                <div class="item-text sd">
+                    <h3>Sanitas</h3>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.comparta.com.co/" target="_blank">
+        <div class="item">
+                <img src="{% static 'img/eps/Comparta.png' %}" alt="" class="item-img">
+                <div class="item-text sd">
+                    <h3>Comparta</h3>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://medimas.com.co/" target="_blank">
+        <div class="item">
+            <img src="{% static 'img/eps/Medimas.png' %}" alt="" class="item-img">
+            <div class="item-text sd">
+                <h3>Medimas</h3>
+            </div>
+        </div>
+    </a>    
+
+    <a href="https://www.nuevaeps.com.co/personas" target="_blank">
+        <div class="item">
+            <img src="{% static 'img/eps/NuevaEps.png' %}" alt="" class="item-img">
+            <div class="item-text sd">
+                <h3>Nueva eps</h3>
+            </div>
+        </div>
+    </a>
+
+    <a href="https://www.coomeva.com.co/" target="_blank">
+        <div class="item">
+            <img src="{% static 'img/eps/Coomeva.png' %}" alt="" class="item-img">
+            <div class="item-text sd">
+                <h3>Coomeva</h3>
+            </div>
+        </div>
+    </a>
+    </div>
+</div>
+{% endblock %}

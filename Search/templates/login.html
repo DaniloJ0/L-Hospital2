@@ -1,0 +1,37 @@
+{% extends "loyout.html" %}
+{% load static %}
+
+{% block body %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{% static 'img/slider1.jpg' %}" alt="First slide" height="450;">
+        <div class="carousel-caption d-none d-md-block">
+          <div>
+            <form class = "form-group" method ="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="ml-auto mr-auto">
+                        <h3 class="my-4">Ingresa mediante:</h3>
+                        <div class="social-buttons">
+                            <a href="#" class="btn btn-outline-danger py-2 ml-2 my-2"  style="width: 310px;"> Google</a>
+                            <p class="mt-1">O</p>
+                            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8">
+                                {{ form.as_p}}
+                                    <div class="form-group">
+                                        <button type="submit" id = "submit" class="btn btn-primary btn-block" >Login</button>
+                        </div>
+                        </form>
+                        <div class="">
+                            ¿Usuario nuevo? <a href="{% url "register" %}"><b>¡Crea tu cuenta!</b></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

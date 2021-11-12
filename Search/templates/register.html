@@ -1,0 +1,10 @@
+{% extends "loyout.html" %}
+{% load static %}
+
+{% block body %}
+<form class = "form-group" method ="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit" id = "submit">Registrarse</button>
+</form>
+{% endblock %}
