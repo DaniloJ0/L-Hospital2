@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.especializacion, name="especializacion"),
     path('mapa/?P<str:id>', views.showMapa, name='mapa'),
+    path('servicio/datos/', views.BuscarView, name='buscar'),
 ]

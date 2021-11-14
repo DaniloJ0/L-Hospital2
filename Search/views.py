@@ -39,9 +39,9 @@ def especializacion(request):
         'lista':lista
     })
 
-def showMapa(request, id): 
-    return render(request, "map.html",{
-        'direcciones': ParametersMap(direccion),
+def showMapa(request, id):
+     return render(request, "map.html",{
+        'direcciones': ParametersMap(id),
         'id':id
     })
 def ShowInformacion(request):
@@ -76,10 +76,19 @@ def List2Dic(lista):
 def ParametersMap(direccion):
     measures=[]
     geo = Nominatim(user_agent='MyApp')
-    loc = geo.geocode(f'{direccion}, Barranquilla')
+    loc = geo.geocode(f'{direccion}, Barranquilla, Atlántico')
     measures.extend([loc.latitude,loc.longitude])
     print(measures)
     return measures        
         
 def afiliaciones(request):
     return render(request, "afiliaciones.html")
+    
+
+def BuscarView(request, *args, **kwargs):
+    buscar = request.POST['buscalo']
+    servicios = servicio.objects.filter(Especialidad = buscar)[:5]
+    for ser in servicios:
+        print(ser.Direccion)
+        
+    return render(request,"info-eps.html",{"servicio":servicios})

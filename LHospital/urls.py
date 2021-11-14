@@ -33,6 +33,7 @@ urlpatterns = [
     path('afiliaciones/', views.afiliaciones, name='afilia'),
     path('prueba_contact/', views.prueba_contact, name='contact'),
     path('informacion/', views.ShowInformacion, name='informacion'),
+    path('inicio/servicio/datos/', views.BuscarView, name='buscar'),
     
 ]
 

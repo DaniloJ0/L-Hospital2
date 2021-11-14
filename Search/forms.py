@@ -19,3 +19,4 @@ class UserRegisterForm(UserCreationForm):
 class logueo():
     user = forms.EmailField
     password1 = forms.CharField(label = 'Contraseña', widget= forms.PasswordInput)
+

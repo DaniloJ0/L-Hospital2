@@ -3,6 +3,31 @@
 {% block title %}Infomación EPS: {% endblock %}
 
 {% block body %}
-
-
+    <form >
+    <table class="table">
+        <thead class='table-header'>
+        <tr>
+            <th>ID</th>
+            <th>MUNICIPIO</th>
+            <th>NOMBRE</th>
+            <th>DIRECCION</th>
+            <th>OPCION</th>
+            <th>CORREO</th>
+        
+        </tr>
+        </thead>
+        <tbody>
+            
+            {% for ser in servicio %}
+                <tr>
+                    <td>{{ser.ID}}</td>
+                    <td>{{ser.Municipio}} </td>
+                    <td>{{ser.Nombre}}</td>
+                    <td>{{ser.Direccion}}</td>
+                    <td><a href="{% url 'mapa' ser.Direccion %}"><li>Ver en el mapa</li></a></td>
+                    <td>{{ser.Correo}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
