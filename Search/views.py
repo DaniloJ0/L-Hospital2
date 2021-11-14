@@ -8,8 +8,6 @@ from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect,render
 from django.contrib import messages
 from geopy.geocoders import Nominatim
-#from django.utils import simplejson
-from json import dumps
 
 lista= ['Cardiologia','Patología','Fisiatría','Dermatología','Neumología','Infectología','Oncohematología.']#[i for i in range(1,6)]
 direcciones=["Carrera 48 # 70 – 38","Carrera 74 # 76-91","Carrera A 42 G # 80 – 115","Carrera 74 # 76-91"]
@@ -18,7 +16,6 @@ direccion="Carrera 74 # 76-91"
 def index(request):
     return render(request,"home.html")
    
-
 def start(request):
     return render(request,"home.html")
 
@@ -31,16 +28,24 @@ def mapa(request):
 def login(request):
     return render(request, "login.html")
 
-def contact(request):
-    return render(request, "contact.html",{
+def contacto(request):
+    return render(request, "contacto.html")
+    
+def prueba_contact(request):
+    return render(request, 'temp.html')
+
+def especializacion(request):
+    return render(request, "especializacion.html",{
         'lista':lista
     })
-    
+
 def showMapa(request, id): 
     return render(request, "map.html",{
         'direcciones': ParametersMap(direccion),
         'id':id
     })
+def ShowInformacion(request):
+    return render(request, "informacion.html")
 
 def  ShowQR(request):
     return render(request, "QR.html")

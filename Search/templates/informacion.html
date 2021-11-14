@@ -1,0 +1,58 @@
+{% extends "loyout.html" %}
+{% load static %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'css/styles_G.css' %}"> {% endblock %}
+{% block title %}L'Hospital: Información{% endblock %}
+
+{% block body %}
+   <div class="grid2">
+
+       <!-- introduccion -->
+       <div class="Top">
+           <h1 id="space">
+               Información
+            </h1>
+            <p>
+                <b>L'Hospital</b> nace de un proyecto asignado de la asignatura de <b>Diseño de Software I</b> donde buscamos implementar un sistema B2C que
+                 solucione o mejore algunas de las tantas necesidades que tiene los ciudadanos de Barranquilla  y sus alrededores. Con ese deseo decidimos implementar 
+                 un sistema que le facilite a las personas encontrar una clínica por su especialización. Esta página está diseñada con tal de que cualquier
+                 persona pueda interactuar con ella y conseguir su objetivo. Podrá encontrar las diferentes clínicas asociadas a una especialización y obtendrá 
+                 la ubicación de la clínica que usted ha seleccionado. 
+            </p>
+            <hr class="featurette-divider line">
+        </div>
+
+        <!-- lado 2 -->
+        <div class="lado2">
+            <div class="lado2_top">
+                <h3>Desarrollado por:</h3>
+            </div>
+            <div class="lado2_D icon">
+                <img src="{% static 'img/integrantes/FotoDaniloJimenez.jpg' %}" title="Danilo Jiménez" alt="Foto Danilo Jimenez" class="foto_integrantes">
+                <p class="pInte"><b>Nombre:</b> Danilo Jiménez Rangel <br> <b>Correo:</b> <a href="mailto:rangeljd@uninorte.edu.co">rangeljd@uninorte.edu.co</a></p>
+                <div class="icon">
+                    <a href="https://www.linkedin.com/in/daniloj0/" target="_blank"><img src="{% static 'img/icon/linkedin.png' %}" title="Linkedin" alt="Linkedin"></a>
+                    <a href="https://github.com/DaniloJ0" target="_blank"><img src="{% static 'img/icon/git.png' %}" title="Github" alt="Git"></a>
+                </div>
+            </div>
+
+            <div class="lado2_Y icon">
+                <img src="{% static 'img/integrantes/FotoYonyHoyos.jpg' %}" title="Yony Hoyos" alt="Foto Yony Hoyos" class="foto_integrantes">
+                <p id="pY"><b>Nombre:</b>  Yony  Hoyos  Meza <br><b>Correo:</b> <a href="mailto:yonyh@uninorte.edu.co">yonyh@uninorte.edu.co</a></p>
+                <div class="icon">
+                    <a href="#" target="_blank"><img src="{% static 'img/icon/linkedin.png' %}" title="Linkedin" alt="Linkedin"></a>
+                    <a href="https://github.com/yonyhome" target="_blank"><img src="{% static 'img/icon/git.png' %}" title="Github" alt="Git"></a>
+                </div>
+            </div>
+
+            <div class="lado2_G icon">
+                <img src="{% static 'img/integrantes/FotoGabrielCastillo.jpg' %}" title="Gabriel Castillo" alt="Foto Gabriel Castillo" class="foto_integrantes">
+                <p class="pInte"><b>Nombre:</b> Gabriel Castillo Rodado<br><b>Correo:</b> <a href="mailto:trodado@uninorte.edu.co">trodado@uninorte.edu.co</a></p>
+                <div class="icon">
+                    <a href="#" target="_blank"><img src="{% static 'img/icon/linkedin.png' %}" title="Linkedin" alt="Linkedin"></a>
+                    <a href="https://github.com/gcastillor" target="_blank"><img src="{% static 'img/icon/git.png' %}" title="Github" alt="Git"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

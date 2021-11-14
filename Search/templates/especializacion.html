@@ -1,8 +1,13 @@
 {% extends "loyout.html" %}
 
-{% block title %}Especialización: {% endblock %}
+{% block title %}L'Hospital:  Especializaciones {% endblock %}
 
 {% block body %}
-
-
+    <div style="margin-top: 15px;">
+        <ul>
+        {%for i in lista%}
+            <a href="{% url 'mapa' id=i %}"><li>{{i}}</li></a> <!-- aqui iria el nombre de la especializacion en vesz del metedo que llamo-->
+        {% endfor%}
+        </ul>
+    </div>
 {% endblock %}

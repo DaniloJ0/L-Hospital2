@@ -27,11 +27,13 @@ urlpatterns = [
     path('', LoginView.as_view(template_name = 'login.html'), name = 'login'),
     path('logout/',LogoutView.as_view(template_name = 'logout.html'), name = 'logout'),
     path('register/', views.register, name='register'),
-    # path('Contactenos/', views.contact, name="contact"),
-    path('Contactenos/', include('Search.urls')),
-    # path('mapa/', views.showMapa, name='mapa'),
+    path('contactenos/', views.contacto, name='contacto'),
     path('Q&R/', views.ShowQR, name='questions'),
+    path('especializaciones/', include('Search.urls')),
     path('afiliaciones/', views.afiliaciones, name='afilia'),
+    path('prueba_contact/', views.prueba_contact, name='contact'),
+    path('informacion/', views.ShowInformacion, name='informacion'),
+    
 ]
 
 urlpatterns +=staticfiles_urlpatterns()

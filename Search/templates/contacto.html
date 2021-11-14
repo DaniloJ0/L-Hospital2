@@ -1,0 +1,63 @@
+{% extends "loyout.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles_G.css' %}"> {% endblock %}
+{% block title %}L'Hospital:  Contactenos{% endblock %}
+
+{% block body %}
+<div class="cont">
+    <div class="Top">
+        <h2> <b>Contactenos</b></h2>
+    </div>
+    <div>
+        <img src="{% static 'img/atencion.png' %}" alt="Atencion al cliente" class="imgC">
+    </div>
+    <div class="item">
+        <div class="container px-5 my-5">
+            <h3>Rellene los siguientes campos</h3>
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="nombre" type="text" placeholder="Nombre"
+                        data-sb-validations="required,email" />
+                    <div class="invalid-feedback" data-sb-feedback="nombre:required">Digite su nombre.</div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="correoElectronico" type="email" placeholder="Correo electronico"
+                        data-sb-validations="required,email" />
+                    <div class="invalid-feedback" data-sb-feedback="correoElectronico:required">Correo electronico es
+                        requerido.</div>
+                    <div class="invalid-feedback" data-sb-feedback="correoElectronico:email">Correo electronico no es
+                        valido</div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" id="asunto" type="text" placeholder="Asunto"
+                        data-sb-validations="required" />
+                    <div class="invalid-feedback" data-sb-feedback="asunto:required">Asunto es requerido.</div>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="escribaElMensaje" type="text" placeholder="Escriba el mensaje"
+                        style="height: 10rem;" data-sb-validations="required"></textarea>
+                    <div class="invalid-feedback" data-sb-feedback="escribaElMensaje:required">No ha dejado su mensaje.
+                    </div>
+                </div>
+                <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center mb-3">
+                        <div class="fw-bolder">Form submission successful!</div>
+                        <p>To activate this form, sign up at</p>
+                        <a
+                            href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                    </div>
+                </div>
+                <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </div>
+</div>
+
+{% endblock %}

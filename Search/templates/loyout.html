@@ -11,7 +11,7 @@
   </head>
 
 <body>
-
+  
   {% if messages %}
   <ul class="messages">
       {% for message in messages %}
@@ -19,7 +19,7 @@
       {% endfor %}
   </ul>
   {% endif %}
-    <nav class="navbar navbar-expand-lg navbar-white bg-white">
+    <nav class="navbar  navbar-expand-lg  navbar-white bg-white">
     <a class="logostyle" href='{% url "index" %}'>
       <img src="{% static 'img/logo.jpg' %}" width="230" height="70">
     </a>
@@ -29,25 +29,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active" >
-          <a class="nav-link" href='{% url  "index" %}' >Inicio <span class="badge badge-secondary">New</span> <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href='{% url  "index" %}' >Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'afilia' %}">Afiliaciones</a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="{% url 'contact' %}">Contactenos</a>
+              
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'especializacion' %}">Especializaciones</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'informacion' %}">Información</a>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Información
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contacto' %}">Contactenos</a>
         </li>
         
         <li class="nav-item">
@@ -57,35 +54,13 @@
       {% block izq %}{% endblock %}
     </div>
   </nav>
+  <hr class="featurette-divider" style="margin: 0px;" >
   {% block body %}
   
   {% endblock %}
-  
-  <!-- Footer -->
+    <!-- Footer -->
   <footer class="bg-dark text-center text-white">
-    <div class="container p-3 pb-6">
-      <section class="">
-        <form action="">
-          <div class="row d-flex justify-content-center">
-            <div class="col-auto">
-              <p class="pt-2">
-                <strong>Sign up for our newsletter</strong>
-              </p>
-            </div>
-            <div class="col-md-5 col-12">
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="form5Example2" class="form-control" />
-                <label class="form-label" for="form5Example2">Email address</label>
-              </div>
-            </div>
-            <div class="col-auto">
-              <button type="submit" class="btn btn-outline-light mb-4">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </form>
-      </section>
+    <div class="container p-4 pb-6">
     </div>
     <div class="text-center" style="background-color: rgba(0, 0, 0, 0.2);">
       Copyright © 2021 Develops by Team DYG
