@@ -8,7 +8,7 @@
   <input class="form-control mr-sm-2" type="search" placeholder="Buscar por especializaciones" aria-label="Search" name="buscalo">
   <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
   <!-- <button class="btn btn-primary my-2 my-sm-0 ml-2" type="submit" hrc>Login</button> -->
-  <a href='{% url "logout" %}'><input type="button" value="Logout" class="btn btn-primary my-2 my-sm-0 ml-2" ></a>
+  <a href='{% url "login" %}'><input type="button" value="Logout" class="btn btn-primary my-2 my-sm-0 ml-2" ></a>
 </form>
 {% endblock %}
 
@@ -64,16 +64,5 @@
     </div>
   </div>
   <hr class="featurette-divider" style="margin-bottom: 40px;">
-
-  <!-- <div id="mapa" style="margin-left: 20%; width: 700px;"></div>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgZZK8umUqJn8d5CoIZqWPJ_qtMfqD9q0&callback=initMap"async defer></script>
-  <script>
-      var mapa;
-      function initMap(){
-          mapa= new google.maps.Map(document.getElementById('mapa'),{
-              center: {lat: 10.9227327, lng:-74.7922199}, zoom: 18
-          });
-      }
-  </script> -->
 
 {% endblock %}

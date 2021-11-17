@@ -93,13 +93,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'lhopital',
         'USER': 'postgres',
-        'PASSWORD': 'clave8375',
-        # 'PASSWORD': 'justdoit55',
+        # 'PASSWORD': 'clave8375',
+        'PASSWORD': 'justdoit55',
         'HOST': '127.0.0.1',
         'DATABASE_PORT': '5432',       
     }
 }
-
+# originall
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

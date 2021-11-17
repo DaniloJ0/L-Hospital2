@@ -5,14 +5,13 @@ from .forms import UserRegisterForm
 from .forms import *
 from .models import *
 from django.contrib.auth.views import LoginView
-from django.shortcuts import redirect,render
+from django.shortcuts import render
 from django.contrib import messages
 
 lista= ['Cardiología','Patología','Fisiatría','Dermatología','Neumología','Infectología','Oncohematología.']
 
 def index(request):
-    
-    return render(request,"home.html")
+    return render(request,'home.html')   
    
 def start(request):
     return render(request,"home.html")
@@ -32,17 +31,19 @@ def contacto(request):
 def prueba_contact(request):
     return render(request, 'temp.html')
 
-
 def especializacion(request):
-    return render(request, "especializacion.html",{
-        'lista': lista
+    especie= servicio.objects.all()           
+    return render(request, "especializacion.html", {
+        'lista': valores_unicos()
     })
     
-    
 def valores_unicos():
-    servicios = servicio.objects.filter('Especialidad').order_by('Especialidad').distinct()
-    print(type(servicios))
-    return servicios
+    lista=[]
+    servicios = servicio.objects.values('Especialidad').order_by('Nombre').distinct()
+    for i in servicios:
+        name=i['Especialidad'].replace('/',"")
+        lista.append(name)
+    return lista
 
 def MostrarTabla(request, id):
     print(id)
@@ -51,28 +52,21 @@ def MostrarTabla(request, id):
         "servicio":servicios,
         "id":id
     })
-
-def BuscarView(request, *args, **kwargs):
-    buscar = request.POST['buscalo']
-    id = servicio.objects.filter(ID = '9999')
-    #print("Latitude: ", float(id[0].Latitude))
-    #print("Longitude: ", float(id[0].Longitude))
-    servicios = servicio.objects.filter(Especialidad__icontains = buscar).order_by("Nombre")[:5] #__unaccent
-    return render(request,"info-eps.html",{"servicio":servicios})
-
     
 def showMapa(request, id):
     id = servicio.objects.filter(ID = id)
     return render(request, "map.html",{
         'id': id[0].Especialidad,
+        'dire': id[0].Direccion,
+        'name': id[0].Nombre,
+        'correo': id[0].Correo,
+        'tipo':id[0].tipo,
+        'meto':id[0].Metodologia,
         'address': [float(id[0].Latitude) , float(id[0].Longitude)]
     })
    
 def ShowInformacion(request):
     return render(request, "informacion.html")
-
-def  ShowQR(request):
-    return render(request, "QR.html")
 
 def register(request):
     if request.method == 'POST':
@@ -93,8 +87,9 @@ def afiliaciones(request):
 
 def BuscarView(request, *args, **kwargs):
     buscar = request.POST['buscalo']
-    servicios = servicio.objects.filter(Especialidad = buscar)[:5]
-    for ser in servicios:
-        print(ser.Direccion)
-        
-    return render(request,"info-eps.html",{"servicio":servicios})
+    servicios = servicio.objects.filter(Especialidad__icontains = buscar)       
+    return render(request,"info-eps.html",{
+        "servicio":servicios,
+        "id": servicios[0].Especialidad
+    })
+

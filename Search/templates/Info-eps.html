@@ -1,34 +1,41 @@
 {% extends "loyout.html" %}
-{% block title %}Infomación EPS {% endblock %}
+{% load static %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'css/styles_G.css' %}"> {% endblock %}
+{% block title %}Tabla:  {{id}} {% endblock %}
+
+
 {% block body %}
-<h3>Infomación EPS:</h3>
-    <form >
-    <table class="table">
-        <thead class='table-header'>
-        <tr>
-            <th>ID</th>
-            <th>MUNICIPIO</th>
-            <th>NOMBRE</th>
-            <th>DIRECCIÓN</th>
-            <th>OPCIÓN</th>
-            <th>CORREO</th>
-        
-        </tr>
-        </thead>
-        <tbody>
+<div class="col-sm-12 col-md-6 col-lg-8 col-xl-11">
+    <h2 class="labe"> Tabla de {{id}}</h2>
+    <div class="table-responsive py-2 tableI">
+        <table class="table table-hover">
+            <thead class='thead-dark'>
+            <tr>
+                <th>ID</th>
+                <th>MUNICIPIO</th>
+                <th>NOMBRE</th>
+                <th>DIRECCIÓN</th>
+                <th>OPCIÓN</th>
+                <th>CORREO</th>
             
-            {% for ser in servicio %}
-                <tr>
-                    <td>{{ser.ID}}</td>
-                    <td>{{ser.Municipio}} </td>
-                    <td>{{ser.Nombre}}</td>
-                    <td> <a href="{% url 'mapa' id=ser.ID %}">Ver ubicación</a> </td>
-                    <td>{{ser.tipo}}</td>
-                    <td>{{ser.Correo}}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </tr>
+            </thead>
+            <tbody>
+                
+                {% for ser in servicio %}
+                    <tr>
+                        <td>{{ser.ID}}</td>
+                        <td>{{ser.Municipio}} </td>
+                        <td>{{ser.Nombre}}</td>
+                        <td> <a href="{% url 'mapa' id=ser.ID %}"  class="btn btn-info" >Ver ubicación</a> </td>
+                        <td>{{ser.tipo}}</td>
+                        <td>{{ser.Correo}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
 
 

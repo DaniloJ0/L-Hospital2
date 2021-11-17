@@ -28,7 +28,6 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(template_name = 'logout.html'), name = 'logout'),
     path('register/', views.register, name='register'),
     path('contactenos/', views.contacto, name='contacto'),
-    path('Q&R/', views.ShowQR, name='questions'),
     path('inicio/especializaciones/', include('Search.urls')),
     path('afiliaciones/', views.afiliaciones, name='afilia'),
     path('prueba_contact/', views.prueba_contact, name='contact'),

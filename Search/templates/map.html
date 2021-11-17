@@ -1,59 +1,69 @@
 {% extends "loyout.html" %}
 {% load static %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{% static 'css/styles_G.css' %}"> {% endblock %}
 {% block title %}Mapa: {{id}} {% endblock %}
 
 {% block body %}
-<div>
-    <h1>Mapa de {{id}}</h1>
-</div>
-<div id="mapa">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgZZK8umUqJn8d5CoIZqWPJ_qtMfqD9q0&callback=initMap"async defer></script>
-    <script>
-        let lugaresInfo = "{{address}}";
-        lista=[];
-        i=1;
-        t= true;
-        s='';
-        s1='';
-        while(i<lugaresInfo.length-1){
-            h=lugaresInfo[i];
-            if (t && h!=','){
-                s+=h;
-           }else{
-               if(lugaresInfo[i]==','){
-                   t=false;
-                   lista.push(Number(s));
-               }else{
-                   s1+=h;
-               }
-           }
-           i+=1;
-        }
-        lista.push(Number(s1));
-        lugaresInfo=lista;
-        var mapa;
-        initMap() 
-        
-        function initMap(obj){
-            mapa = new google.maps.Map(document.getElementById('mapa'), {
-                center: {lat: lugaresInfo[0], lng: lugaresInfo[1]},
-                zoom: 12
-            })
-            
-            let marcadores= new google.maps.Marker({
-                position: {lat: lugaresInfo[0], lng: lugaresInfo[1]},
-                title: 'Tu ubicacion',
-                map: mapa
-            })
-            //let marcadores = lugaresInfo.map(lugar => {
-             //   return new google.maps.Marker({
-             //       position: lugar,
-                    //title: 'Tu ubicacion',
-             //       map: mapa
-               // })
-        
-        } 
-           
-    </script>
+<div class="grid0" >
+    <div class="uno">
+        <h3 class="labe">Mapa de {{name}}</h2>
+    </div>
+    <div class="dos_mapa">
+        <div id="mapa">
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgZZK8umUqJn8d5CoIZqWPJ_qtMfqD9q0&callback=initMap"
+                async defer></script>
+            <script>
+                let lugaresInfo = "{{address}}";
+                lista = [];
+                i = 1;
+                t = true;
+                s = '';
+                s1 = '';
+                while (i < lugaresInfo.length - 1) {
+                    h = lugaresInfo[i];
+                    if (t && h != ',') {
+                        s += h;
+                    } else {
+                        if (lugaresInfo[i] == ',') {
+                            t = false;
+                            lista.push(Number(s));
+                        } else {
+                            s1 += h;
+                        }
+                    }
+                    i += 1;
+                }
+                lista.push(Number(s1));
+                lugaresInfo = lista;
+                var mapa;
+                initMap()
+
+                function initMap(obj) {
+                    mapa = new google.maps.Map(document.getElementById('mapa'), {
+                        center: { lat: 10.9796283, lng: -74.8216642 },
+                        zoom: 13
+                    })
+                    let marcadores = new google.maps.Marker({
+                        position: { lat: lugaresInfo[0], lng: lugaresInfo[1] },
+                        title: 'Tu ubicacion',
+                        map: mapa
+                    })
+                }
+            </script>
+        </div>
+    </div>
+    <div class="info">
+        <div class="infoB">
+            <h1> Información</h1>
+            <ul>
+                <li><p class="pre"><b>Correo:</b> {{correo}} </p></li>
+                <li><p class="pre"><b> Tipo:</b> {{tipo}}</p></li>
+                <li><p class="pre"><b> Dirección:</b> {{dire}}</p></li>
+                <li><p class="pre"><b> Metodología:</b> {{meto}}</p></li>
+            </ul>
+             
+        </div>
+    </div>
 </div>
  {% endblock %}
