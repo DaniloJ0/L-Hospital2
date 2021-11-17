@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import fields
 from django.forms.fields import Field
+from django.forms import ModelForm
 
 
 class UserRegisterForm(UserCreationForm):
@@ -19,4 +20,5 @@ class UserRegisterForm(UserCreationForm):
 class logueo():
     user = forms.EmailField
     password1 = forms.CharField(label = 'Contraseña', widget= forms.PasswordInput)
+
 

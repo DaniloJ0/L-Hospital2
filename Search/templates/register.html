@@ -5,10 +5,52 @@
 
 
 {% block body %}
+<div id="content" >
+    <div class="container background-white">
+        <div class="row margin-vert-30">
+                <form class="signup-page" method="post">
+                    {% csrf_token %}
+                    <div class="login-header margin-bottom-30">
+                        <h2>Cree una cuenta para usar nuestros servicios</h2>
+                    </div>
 
-<form class = "form-group" method ="POST">
-    {% csrf_token %}
-    {{ form.as_p}}
-    <button type="submit" id = "submit">Registrarse</button>
-</form>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input placeholder="Nombre de usuario" {{form.username}}
+                    </div>
+
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input placeholder="Email" {{ form.email}}
+                    </div>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        <input placeholder="Contraseña" {{ form.password1}}
+                    </div>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                        <input placeholder="Confirmar contraseña" {{ form.password2}}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="checkbox">
+                                <input type="checkbox">Stay signed in
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary pull-right" type="submit" id = "submit">Registrarse</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

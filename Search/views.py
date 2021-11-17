@@ -11,6 +11,7 @@ from django.contrib import messages
 lista= ['Cardiología','Patología','Fisiatría','Dermatología','Neumología','Infectología','Oncohematología.']
 
 def index(request):
+    
     return render(request,"home.html")
    
 def start(request):
