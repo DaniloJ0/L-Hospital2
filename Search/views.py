@@ -32,11 +32,7 @@ def contacto(request):
 def prueba_contact(request):
     return render(request, 'temp.html')
 
-<<<<<<< Updated upstream
 def especializacion(request):
-=======
-def especializacion(request):  #-----------------FALTA
->>>>>>> Stashed changes
     especie= servicio.objects.all()           
     return render(request, "especializacion.html", {
         'lista': valores_unicos()
@@ -47,10 +43,6 @@ def valores_unicos():
     servicios = servicio.objects.values('Especialidad').order_by('Nombre').distinct()
     for i in servicios:
         name=i['Especialidad'].replace('/',"")
-<<<<<<< Updated upstream
-=======
-        print(name)
->>>>>>> Stashed changes
         lista.append(name)
     return lista
 
@@ -68,12 +60,9 @@ def showMapa(request, id):
         'id': id[0].Especialidad,
         'dire': id[0].Direccion,
         'name': id[0].Nombre,
-<<<<<<< Updated upstream
         'correo': id[0].Correo,
         'tipo':id[0].tipo,
         'meto':id[0].Metodologia,
-=======
->>>>>>> Stashed changes
         'address': [float(id[0].Latitude) , float(id[0].Longitude)]
     })
    
