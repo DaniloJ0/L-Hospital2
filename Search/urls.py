@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.especializacion, name="especializacion"),
-    path('mapa/?P<str:id>', views.showMapa, name='mapa'),
+    path('tabla/? <str:id>', views.MostrarTabla, name='tabla'),
+    path('tabla/mapa/? <str:id>', views.showMapa, name='mapa'),
 ]

@@ -1,3 +1,4 @@
+<!-- tabla_especializacion.html -->
 {% extends "loyout.html" %}
 
 {% block title %}L'Hospital:  Especializaciones {% endblock %}
@@ -6,7 +7,7 @@
     <div style="margin-top: 15px;">
         <ul>
         {%for i in lista%}
-            <a href="{% url 'tabla' id=i %}"><li>{{i}}</li></a> <!-- aqui iria el nombre de la especializacion en vesz del metedo que llamo-->
+            <a href="{% url 'mapa' id=i %}"><li>{{i}}</li></a> <!-- aqui iria el nombre de la especializacion en vesz del metedo que llamo-->
         {% endfor%}
         </ul>
     </div>

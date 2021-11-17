@@ -4,8 +4,8 @@
 
 <!-- Buscador y Login -->
 {% block izq %}
-<form class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Buscar entidad de salud" aria-label="Search">
+<form class="form-inline my-2 my-lg-0" method="POST" action='especializaciones/'>{% csrf_token %}
+  <input class="form-control mr-sm-2" type="search" placeholder="Buscar por especializaciones" aria-label="Search" name="buscalo">
   <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
   <!-- <button class="btn btn-primary my-2 my-sm-0 ml-2" type="submit" hrc>Login</button> -->
   <a href='{% url "logout" %}'><input type="button" value="Logout" class="btn btn-primary my-2 my-sm-0 ml-2" ></a>
@@ -14,7 +14,7 @@
 
 {% block body %}
 <!-- Carousel -->
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style = "margin-bottom: 40px;">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style = "margin-bottom: 60px;">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="d-block w-100" src="{% static 'img/slider2.jpg' %}" alt="First slide" height="410">
@@ -26,29 +26,29 @@
       </div>
     </div>
   </div>
-
+  
   <div class="container marketing">
     <!-- Three columns of text below the carousel -->
     <div class="row" style = "margin-left: 45px;">
       <div class="col-lg-4">
-        <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+        <img class="rounded-circle" src="{% static 'img/circulo1-6.png' %}" alt="Accesible" width="140" height="140">
         <h2>Accesible</h2>
         <p>Proveerle a usted la ubicación de las diferentes clínicas y sus especializaciones.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">Ver detalles »</a></p>
-      </div><!-- /.col-lg-4 -->
+        <!-- <p><a class="btn btn-secondary" href="#" role="button">Ver detalles »</a></p> -->
+      </div>
       <div class="col-lg-4">
-        <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+        <img class="rounded-circle" src="{% static 'img/circulo2-6.png' %}" alt="Practico" width="140" height="140">
         <h2>Práctico</h2>
         <p>Ahorrar tiempo al momento de agendar una cita es uno de nuestros objetivos principales. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">Ver detalles »</a></p>
-      </div><!-- /.col-lg-4 -->
+        <!-- <p><a class="btn btn-secondary" href="#" role="button">Ver detalles »</a></p> -->
+      </div>
       <div class="col-lg-4">
-        <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+        <img class="rounded-circle" src="{% static 'img/circulo3-6.png' %}" alt="Sencillo" width="140" height="140">
         <h2>Sencillo</h2>
         <p>Modelo altamente intuitivo y fácil de usar para que te sientas cómodo ubicandote en la ciudad.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">Ver detalles »</a></p>
-      </div><!-- /.col-lg-4 -->
-    </div><!-- /.row -->
+        <!-- <p><a class="btn btn-secondary" href="#" role="button">Ver detalles »</a></p> -->
+      </div>
+    </div>
 
     <!-- START THE FEATURETTES -->
     <hr class="featurette-divider" style="margin: 50px;" >

@@ -1,7 +1,7 @@
 .cont{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto ;
+    grid-template-rows: auto;
     column-gap: 11px;
     row-gap: 20px;
     margin: 18px 25px 25px 0px;
@@ -17,10 +17,6 @@ h3{
     border-radius: 10%;
 }
 
-.cont div item{
-    background: greenyellow;
-}
-
 .imgC{
     border-radius: 15px;
     margin: 1px 15px 0px 30px;
@@ -34,6 +30,10 @@ h3{
 
 }
 
+.Top{
+    grid-column: 1/4;
+    text-align: center;
+}
 /* ----------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 
@@ -45,10 +45,7 @@ h3{
     margin: 15px 25px 25px 15px;
 }
 
-.Top{
-    grid-column: 1/4;
-    text-align: center;
-}
+
 
 
 h1{
@@ -125,4 +122,9 @@ h1{
 
 .line{
     margin: 20px 0px 40px 0px;
+}
+
+.fon{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 21px;
 }

@@ -7,11 +7,8 @@ from .models import *
 from django.contrib.auth.views import LoginView
 from django.shortcuts import redirect,render
 from django.contrib import messages
-from geopy.geocoders import Nominatim
 
-lista= ['Cardiologia','Patología','Fisiatría','Dermatología','Neumología','Infectología','Oncohematología.']#[i for i in range(1,6)]
-direcciones=["Carrera 48 # 70 – 38","Carrera 74 # 76-91","Carrera A 42 G # 80 – 115","Carrera 74 # 76-91"]
-direccion="Carrera 74 # 76-91"
+lista= ['Cardiología','Patología','Fisiatría','Dermatología','Neumología','Infectología','Oncohematología.']
 
 def index(request):
     return render(request,"home.html")
@@ -34,16 +31,42 @@ def contacto(request):
 def prueba_contact(request):
     return render(request, 'temp.html')
 
+
 def especializacion(request):
     return render(request, "especializacion.html",{
-        'lista':lista
+        'lista': lista
+    })
+    
+    
+def valores_unicos():
+    servicios = servicio.objects.filter('Especialidad').order_by('Especialidad').distinct()
+    print(type(servicios))
+    return servicios
+
+def MostrarTabla(request, id):
+    print(id)
+    servicios = servicio.objects.filter(Especialidad__icontains = id).order_by("Nombre")
+    return render(request,"info-eps.html",{
+        "servicio":servicios,
+        "id":id
     })
 
-def showMapa(request, id): 
+def BuscarView(request, *args, **kwargs):
+    buscar = request.POST['buscalo']
+    id = servicio.objects.filter(ID = '9999')
+    #print("Latitude: ", float(id[0].Latitude))
+    #print("Longitude: ", float(id[0].Longitude))
+    servicios = servicio.objects.filter(Especialidad__icontains = buscar).order_by("Nombre")[:5] #__unaccent
+    return render(request,"info-eps.html",{"servicio":servicios})
+
+    
+def showMapa(request, id):
+    id = servicio.objects.filter(ID = id)
     return render(request, "map.html",{
-        'direcciones': ParametersMap(direccion),
-        'id':id
+        'id': id[0].Especialidad,
+        'address': [float(id[0].Latitude) , float(id[0].Longitude)]
     })
+   
 def ShowInformacion(request):
     return render(request, "informacion.html")
 
@@ -61,25 +84,7 @@ def register(request):
         form = UserRegisterForm
     context = {'form':form}
     return render(request, 'register.html', context)
-
-
-def List2Dic(lista):
-    geo = Nominatim(user_agent='MyApp')
-    meansures=[]
-    for address in lista:
-        loc = geo.geocode(f'{address}, Barranquilla')
-        s={'lat':loc.latitude, 'lng': loc.longitude }
-        # print(s)
-        meansures.append(s)
-    return meansures
-    
-def ParametersMap(direccion):
-    measures=[]
-    geo = Nominatim(user_agent='MyApp')
-    loc = geo.geocode(f'{direccion}, Barranquilla')
-    measures.extend([loc.latitude,loc.longitude])
-    print(measures)
-    return measures        
+  
         
 def afiliaciones(request):
     return render(request, "afiliaciones.html")

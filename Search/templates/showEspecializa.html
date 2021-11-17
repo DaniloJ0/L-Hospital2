@@ -1,7 +1,5 @@
-{% extends "loyout.html" %}
-{% block title %}Infomación EPS {% endblock %}
+<!-- {% extends "loyout.html" %}
 {% block body %}
-<h3>Infomación EPS:</h3>
     <form >
     <table class="table">
         <thead class='table-header'>
@@ -9,8 +7,8 @@
             <th>ID</th>
             <th>MUNICIPIO</th>
             <th>NOMBRE</th>
-            <th>DIRECCIÓN</th>
-            <th>OPCIÓN</th>
+            <th>DIRECCION</th>
+            <th>OPCION</th>
             <th>CORREO</th>
         
         </tr>
@@ -22,13 +20,11 @@
                     <td>{{ser.ID}}</td>
                     <td>{{ser.Municipio}} </td>
                     <td>{{ser.Nombre}}</td>
-                    <td> <a href="{% url 'mapa' id=ser.ID %}">Ver ubicación</a> </td>
-                    <td>{{ser.tipo}}</td>
+                    <td>{{ser.Direccion}}</td>
+                    <td>{{ser.Direccion}}</td>
                     <td>{{ser.Correo}}</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-{% endblock %}
-
-
+{% endblock %} -->

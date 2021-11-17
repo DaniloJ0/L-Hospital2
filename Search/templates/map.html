@@ -9,7 +9,7 @@
 <div id="mapa">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgZZK8umUqJn8d5CoIZqWPJ_qtMfqD9q0&callback=initMap"async defer></script>
     <script>
-        let lugaresInfo = "{{direcciones}}";//[{lat: 10.9899356, lng:-74.8114818}, {lat: 10.9227327, lng:-74.7922199},{lat: 10.9227327, lng:-74.7922199},{lat:10.9925135, lng:-74.8061723},{lat: 10.9713823, lng:-74.8463089}];
+        let lugaresInfo = "{{address}}";
         lista=[];
         i=1;
         t= true;
@@ -31,7 +31,6 @@
         }
         lista.push(Number(s1));
         lugaresInfo=lista;
-        //alert(lugaresInfo);
         var mapa;
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(usuarioubicacion => {

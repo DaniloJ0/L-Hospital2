@@ -29,7 +29,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('contactenos/', views.contacto, name='contacto'),
     path('Q&R/', views.ShowQR, name='questions'),
-    path('especializaciones/', include('Search.urls')),
+    path('inicio/especializaciones/', include('Search.urls')),
     path('afiliaciones/', views.afiliaciones, name='afilia'),
     path('prueba_contact/', views.prueba_contact, name='contact'),
     path('informacion/', views.ShowInformacion, name='informacion'),
