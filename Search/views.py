@@ -88,3 +88,12 @@ def register(request):
         
 def afiliaciones(request):
     return render(request, "afiliaciones.html")
+    
+
+def BuscarView(request, *args, **kwargs):
+    buscar = request.POST['buscalo']
+    servicios = servicio.objects.filter(Especialidad = buscar)[:5]
+    for ser in servicios:
+        print(ser.Direccion)
+        
+    return render(request,"info-eps.html",{"servicio":servicios})
