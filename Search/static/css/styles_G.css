@@ -147,6 +147,7 @@ h1{
 
 .grid0{
     display: grid;
+<<<<<<< Updated upstream
     grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 20px;
     margin: 0PX 10px 10px 10px;
@@ -154,11 +155,20 @@ h1{
 
 .uno{
     grid-column: 1/6;
+=======
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+}
+
+.uno{
+    grid-column: 1/3;
+>>>>>>> Stashed changes
     text-align: center;
     margin-top: 25px;
 }
 
 .dos_mapa{
+<<<<<<< Updated upstream
     text-align: center;
     grid-column: 1/4;
     justify-self: center;
@@ -180,3 +190,9 @@ h1{
     margin: 15px 0px 10px 14px;
     font-size: 20px;
 }
+=======
+    grid-column: 1/2;
+}
+
+
+>>>>>>> Stashed changes

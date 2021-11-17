@@ -7,6 +7,7 @@ from .models import *
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 from django.contrib import messages
+from django.contrib.auth import authenticate
 
 lista= ['Cardiología','Patología','Fisiatría','Dermatología','Neumología','Infectología','Oncohematología.']
 

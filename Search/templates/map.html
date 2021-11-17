@@ -4,9 +4,15 @@
 {% block title %}Mapa: {{id}} {% endblock %}
 
 {% block body %}
+<<<<<<< Updated upstream
 <div class="grid0" >
     <div class="uno">
         <h3 class="labe">Mapa de {{name}}</h2>
+=======
+<div class="grid0">
+    <div class="uno">
+        <h3>Mapa de {{name}} ubicado en la {{dire}}</h2>
+>>>>>>> Stashed changes
     </div>
     <div class="dos_mapa">
         <div id="mapa">
@@ -42,7 +48,11 @@
                 function initMap(obj) {
                     mapa = new google.maps.Map(document.getElementById('mapa'), {
                         center: { lat: 10.9796283, lng: -74.8216642 },
+<<<<<<< Updated upstream
                         zoom: 13
+=======
+                        zoom: 12
+>>>>>>> Stashed changes
                     })
                     let marcadores = new google.maps.Marker({
                         position: { lat: lugaresInfo[0], lng: lugaresInfo[1] },
@@ -53,6 +63,7 @@
             </script>
         </div>
     </div>
+<<<<<<< Updated upstream
     <div class="info">
         <div class="infoB">
             <h1> Información</h1>
@@ -64,6 +75,10 @@
             </ul>
              
         </div>
+=======
+    <div>
+        <h1> Informacion</h1>
+>>>>>>> Stashed changes
     </div>
 </div>
  {% endblock %}
