@@ -4,15 +4,9 @@
 {% block title %}Mapa: {{id}} {% endblock %}
 
 {% block body %}
-<<<<<<< Updated upstream
-<div class="grid0" >
-    <div class="uno">
-        <h3 class="labe">Mapa de {{name}}</h2>
-=======
 <div class="grid0">
     <div class="uno">
-        <h3>Mapa de {{name}} ubicado en la {{dire}}</h2>
->>>>>>> Stashed changes
+        <h3 class="labe">Mapa de {{name}}</h2>
     </div>
     <div class="dos_mapa">
         <div id="mapa">
@@ -48,11 +42,7 @@
                 function initMap(obj) {
                     mapa = new google.maps.Map(document.getElementById('mapa'), {
                         center: { lat: 10.9796283, lng: -74.8216642 },
-<<<<<<< Updated upstream
                         zoom: 13
-=======
-                        zoom: 12
->>>>>>> Stashed changes
                     })
                     let marcadores = new google.maps.Marker({
                         position: { lat: lugaresInfo[0], lng: lugaresInfo[1] },
@@ -63,22 +53,23 @@
             </script>
         </div>
     </div>
-<<<<<<< Updated upstream
     <div class="info">
         <div class="infoB">
             <h1> Información</h1>
             <ul>
-                <li><p class="pre"><b>Correo:</b> {{correo}} </p></li>
-                <li><p class="pre"><b> Tipo:</b> {{tipo}}</p></li>
-                <li><p class="pre"><b> Dirección:</b> {{dire}}</p></li>
-                <li><p class="pre"><b> Metodología:</b> {{meto}}</p></li>
+                <li>
+                    <p class="pre"><b>Correo:</b> {{correo}} </p>
+                </li>
+                <li>
+                    <p class="pre"><b> Tipo:</b> {{tipo}}</p>
+                </li>
+                <li>
+                    <p class="pre"><b> Dirección:</b> {{dire}}</p>
+                </li>
+                <li>
+                    <p class="pre"><b> Metodología:</b> {{meto}}</p>
+                </li>
             </ul>
-             
         </div>
-=======
-    <div>
-        <h1> Informacion</h1>
->>>>>>> Stashed changes
     </div>
-</div>
  {% endblock %}

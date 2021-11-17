@@ -1,3 +1,9 @@
 psycopg2
 
+* Posibles servidores:
+- GeoServer
+- PostGis
+- MapServer
+- Qgis
+
 
