@@ -1,4 +1,13 @@
 psycopg2
+<<<<<<< Updated upstream
+
+* Posibles servidores:
+- GeoServer
+- PostGis
+- MapServer
+- Qgis
+=======
+>>>>>>> Stashed changes
 
 * Posibles servidores:
 - GeoServer
